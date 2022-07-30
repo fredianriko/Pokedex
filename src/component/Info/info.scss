@@ -25,9 +25,23 @@
         }
     }
     .name{
+        width: 170px;
+        height: 30px;
+        // width: --webkit-fit-content;
         position: relative;
-        margin-left: 15px;
+        margin-left: 55px;
         margin-top: 15px;
+        margin-bottom: 30px;
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(1, 1, 33);
+        color: white;
+        border-radius: 15px;
+    }
+    .basic-stats{
+        margin-left: 15px;
     }
 
     .inset{
