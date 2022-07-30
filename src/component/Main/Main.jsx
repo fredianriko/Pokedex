@@ -102,7 +102,7 @@ function Main() {
     <div className="main">
          <div className="header">
             <div className="header-text">
-              <img src='/assets/pokeapi_256.png' alt="" />
+              <img src='/pokeapi_256.png' alt="" />
             </div>
          </div>
          <div className="content">
