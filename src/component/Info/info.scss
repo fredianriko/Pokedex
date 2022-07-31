@@ -4,7 +4,8 @@
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-
+  margin: 0px;
+  top: 0px;
   .image {
     width: 180px;
     height: 180px;
@@ -30,16 +31,42 @@
     margin-left: 35px;
     margin-top: 15px;
     margin-bottom: 30px;
-    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgb(1, 1, 33);
     color: white;
-    border-radius: 15px;
+    border-radius: 10px;
+  }
+
+  .stats {
+    width: 200px;
+    height: 45px;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background-color: crimson;
+    color: white;
+    border-radius: 10px;
   }
   .basic-stats {
     margin-left: 15px;
+    width: 250px;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    border: 1px solid black;
+    background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px,
+      radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
+    background-color: #282828;
+    background-size: 16px 16px;
+    color: white;
+    border-radius: 10px;
   }
 
   .inset {
