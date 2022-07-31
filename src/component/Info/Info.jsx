@@ -47,6 +47,14 @@ function Info({ data, dataNow }) {
           </h2>
         </div>
       </div>
+      <div className="additional-information">
+        <div className="abilitites">Abilities</div>
+        <div className="forms">Forms</div>
+        <div className="moves">Moves</div>
+        <div className="species">Specis</div>
+        <div className="types">Types</div>
+        <div className="game-indices">game Indices</div>
+      </div>
     </div>
   );
 }

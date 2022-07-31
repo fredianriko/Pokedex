@@ -56,15 +56,22 @@ function Main() {
     // setPokemon([])
     setPokemonDataArray([]);
     setPokemonUrl([]);
-    setOffset((offset) => (offset += 12));
+    if (offset >= 0) {
+      setOffset((offset) => (offset += 12));
+    }
   };
 
   //handle prev to decrease the offset
   const handlePrev = (e) => {
-    // setPokemon([])
-    setPokemonDataArray([]);
-    setPokemonUrl([]);
-    setOffset((prev) => (prev -= 12));
+    if (offset === 0) {
+      setOffset(0);
+    } else {
+      setPokemonDataArray([]);
+      setPokemonUrl([]);
+      setOffset((prev) => (prev -= 12));
+    }
+
+    console.log(offset);
   };
 
   //click event handler from card, so when one pokemon card is clicked, it will return the id of that pokemon
@@ -78,16 +85,12 @@ function Main() {
   //render
   return (
     <div className="main">
-      {/* Header Sections */}
       <div className="header">
         <div className="header-text">
           <img src="/pokeapi_256.png" alt="" />
         </div>
       </div>
-
-      {/* Content Sections */}
       <div className="content">
-        {/* Cards Section*/}
         <div className="cards">
           <div className="cards-container">
             {pokemonDataArray.map((item, index) => (
@@ -105,12 +108,9 @@ function Main() {
             </button>
           </div>
         </div>
-
-        {/* Information section */}
-        <div className="information">
-          <Info data={pokemonDataArray[0]} dataNow={pokemonInfoById} />
-        </div>
+        <Info data={pokemonDataArray[0]} dataNow={pokemonInfoById} />
       </div>
+      {/* <div className="detail-information">test</div> */}
     </div>
   );
 }
