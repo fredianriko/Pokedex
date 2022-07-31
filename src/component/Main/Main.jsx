@@ -15,22 +15,6 @@ function Main() {
   const [pokemonDataArray, setPokemonDataArray] = useState([])
   const [pokemonUrl, setPokemonUrl] = useState([])
   const [pokemonInfoById, setPokemonInfoById] = useState()
-  const [firstData, setFirstData] = useState()
-
- 
-  useEffect(() => {
-   const initialData = async () => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon/1`)
-    .then(response => {
-      setFirstData(response.data)
-
-    })
-    .catch(error => {
-      console.log(error)
-    })
-   } 
-   initialData()
-  },[])
 
 
   useEffect(() => {
@@ -38,7 +22,6 @@ function Main() {
       axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
       .then(res => {
         const data = res.data.results
-        // setPokemon(data)
         setPokemonUrl(data.map(item => item.url))
       })
       .catch(error => {
