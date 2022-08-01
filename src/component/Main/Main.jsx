@@ -29,6 +29,9 @@ function Main() {
         });
     };
     pokemonUrlData();
+    return () => {
+      setPokemonUrl([]);
+    }
   }, [offset]);
 
   //fetch each url in pokemonUrl and store it to pokemonDataArray
@@ -45,6 +48,9 @@ function Main() {
             console.log(error);
           })
       );
+      return () => {
+        setPokemonDataArray([]);
+      }
     };
 
     pokemonDataBulk();
