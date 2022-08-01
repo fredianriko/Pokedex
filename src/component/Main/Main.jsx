@@ -7,15 +7,16 @@ import Info from "../Info/Info";
 const axios = require("axios").default;
 
 function Main() {
-  //STATE
-  const limit = 12; // query limit pokemon
-  const [offset, setOffset] = useState(0); // query offset pokemon
+  //api fetching limit & offset start
+  const limit = 12;
+  const [offset, setOffset] = useState(0);
 
+  //state
   const [pokemonDataArray, setPokemonDataArray] = useState([]);
   const [pokemonUrl, setPokemonUrl] = useState([]);
   const [pokemonInfoById, setPokemonInfoById] = useState();
 
-  //get pokemon name and url data from api and store to pokemon url state
+  //set 12 pokemon url based on offset
   useEffect(() => {
     const pokemonUrlData = async () => {
       axios
@@ -31,10 +32,10 @@ function Main() {
     pokemonUrlData();
     return () => {
       setPokemonUrl([]);
-    }
+    };
   }, [offset]);
 
-  //fetch each url in pokemonUrl and store it to pokemonDataArray
+  //store 12 pokemon data from pokemonUrl
   useEffect(() => {
     const pokemonDataBulk = async () => {
       pokemonUrl.map((url) =>
@@ -50,14 +51,13 @@ function Main() {
       );
       return () => {
         setPokemonDataArray([]);
-      }
+      };
     };
 
     pokemonDataBulk();
   }, [pokemonUrl]);
 
-  //button click event handler
-  //handle next to increase the offset
+  //handle next to increase the offset by 12
   const handleNext = (e) => {
     // setPokemon([])
     setPokemonDataArray([]);
@@ -67,7 +67,7 @@ function Main() {
     }
   };
 
-  //handle prev to decrease the offset
+  //handle prev to decrease the offset by 12
   const handlePrev = (e) => {
     if (offset === 0) {
       setOffset(0);
@@ -76,19 +76,16 @@ function Main() {
       setPokemonUrl([]);
       setOffset((prev) => (prev -= 12));
     }
-
-    console.log(offset);
+    // console.log(offset); -> for debug
   };
 
-  //click event handler from card, so when one pokemon card is clicked, it will return the id of that pokemon
-  // and set data with that id from pokemonDataArray to pokemonInfoById
+  //set 1 pokemon info based on id props from card
   const showInfoById = async (id) => {
     pokemonDataArray.forEach((item) => {
       if (item.id === parseInt(id)) return setPokemonInfoById(item);
     });
   };
 
-  //render
   return (
     <div className="main">
       <div className="header">
@@ -103,8 +100,6 @@ function Main() {
               <Card name={item.name} image={item.sprites.other.home.front_default} key={index} data={item} id={item.id} showInfoById={showInfoById} />
             ))}
           </div>
-
-          {/* Button section */}
           <div className="button">
             <button onClick={handlePrev} className="prev">
               Prev
@@ -116,7 +111,6 @@ function Main() {
         </div>
         <Info data={pokemonDataArray[0]} dataNow={pokemonInfoById} />
       </div>
-      {/* <div className="detail-information">test</div> */}
     </div>
   );
 }

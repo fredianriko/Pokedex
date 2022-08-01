@@ -1,8 +1,8 @@
 import React from "react";
-import "./card.scss"; // importing css file
+import "./card.scss";
 
 function Card({ name, image, id, showInfoById }) {
-  //passing the pokemon id cliced to Main component
+  //pass id to main component
   const handleClick = (e) => {
     showInfoById(e.target.id);
   };

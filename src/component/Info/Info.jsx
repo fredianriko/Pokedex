@@ -11,8 +11,6 @@ function Info({ data, dataNow }) {
   const pokemonSpecialAttack = dataNow ? dataNow?.stats[3].base_stat : data?.stats[3].base_stat;
   const pokemonSpecialDefense = dataNow ? dataNow?.stats[4].base_stat : data?.stats[4].base_stat;
   const pokemonSpeed = dataNow ? dataNow?.stats[5].base_stat : data?.stats[5].base_stat;
-  const pokemonHeight = dataNow ? dataNow.height : data?.height;
-  const pokemonWeight = dataNow ? dataNow.weight : data?.weight;
 
   return (
     <div className="information">
